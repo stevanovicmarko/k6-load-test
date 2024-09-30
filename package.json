@@ -1,0 +1,24 @@
+{
+  "name": "k6-load-test",
+  "version": "0.0.1",
+  "description": "Load testing example using K6",
+  "main": "app.ts",
+  "scripts": {
+    "build": "tsc",
+    "server:start": "node dist/app/server.js",
+    "server:watch": "node --watch -r ts-node/register src/app/server.ts",
+    "test": "npm run build && k6 run --out experimental-prometheus-rw dist/load-tests/index.js"
+  },
+  "author": "Marko Stevanovic",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/k6": "^0.53.2",
+    "@types/node": "^22.5.5",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "fastify": "^5.0.0"
+  }
+}

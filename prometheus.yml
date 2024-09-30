@@ -1,0 +1,19 @@
+   global:
+     scrape_interval: 15s
+
+   scrape_configs:
+     - job_name: 'k6'
+       static_configs:
+         - targets: ['host.docker.internal:6565']
+
+     - job_name: 'prometheus'
+       static_configs:
+         - targets: ['localhost:9090']
+
+
+# TODO: enable remote write
+#   remote_write:
+#       - url: 'http://grafana:3000/api/prom/push'
+#         basic_auth:
+#           username: 'admin'
+#           password: 'admin'
